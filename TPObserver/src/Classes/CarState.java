@@ -5,27 +5,22 @@
  */
 package Classes;
 
+
+
 /**
  *
  * @author Alumno
  */
-class CarState{
-    private final String patent; // ID
-    private int oilLevel; //0 to 100 (percentage)
-    private int wheelPressure;
-    private int waterLevel; // 0 to 100 (percentage)
-    private int wheelsCuantity;
-    private String color;
-    private String model; 
+class CarState implements Cloneable{
     
-    public CarState(String patent, int wheelsCuantity, Colors color, String model){
-        this.oilLevel = 100;
-        this.wheelPressure = 100;
-        this.waterLevel = 100;
-        this.patent = patent;
-        this.wheelsCuantity = wheelsCuantity;
-        this.color = color.name();
-        this.model = model;
+    private int oilLevel; //0 to 100 (percentage)
+    private float wheelPressure;
+    private int waterLevel; // 0 to 100 (percentage)
+    
+    public CarState(int baseOilLevel, float baseWheelPressure, int baseWaterLevel){
+        this.oilLevel = baseOilLevel;
+        this.wheelPressure = baseWheelPressure;
+        this.waterLevel = baseWaterLevel;
     }
     
     public int getOilLevel() {
@@ -36,29 +31,36 @@ class CarState{
         return waterLevel;
     }
     
-    public int getWheelPressure() {
+    public float getWheelsPressure() {
         return wheelPressure;
     }
+
+    public void setOilLevel(int oilLevel) {
+        this.oilLevel = oilLevel;
+    }
+
+    public void setWheelPressure(float wheelPressure) {
+        this.wheelPressure = wheelPressure;
+    }
+
+    public void setWaterLevel(int waterLevel) {
+        this.waterLevel = waterLevel;
+    }
     
-    public void decrementOilLevel(int oilLevel) {
-        this.oilLevel-=oilLevel;
-    }
-
-    public void decrementWheelPressure(int wheelPressure) {
-        this.wheelPressure-= wheelPressure;
-    }
-
-    public int decrementWaterLevel(int waterLevel) {
-        return waterLevel-=waterLevel;
-    }
-
     @Override
     public String toString() {
-        return "| Vehículo: " + model + " " + color + " " + wheelsCuantity + " ruedas " +
-               "| Patente: " + patent + "| Estado: " + 
-                    " presion de las ruedas: " + wheelPressure + 
-                    " nivel de aceite: " + oilLevel + 
-                    " nivel de agua: " + waterLevel;
+        return  " presion de las ruedas: " + wheelPressure + 
+                " nivel de aceite: " + oilLevel + 
+                " nivel de agua: " + waterLevel;
+    }
+    
+    @Override
+    public CarState clone(){
+        CarState carState = null;
+        try {
+            carState = (CarState) super.clone();
+        } catch (CloneNotSupportedException ex) { }
+        return carState;
     }
     
 }
