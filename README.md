@@ -13,4 +13,5 @@ Desde el objeto observable:
 
 
 -Al método update() se le envían dos parámetros, uno es el objeto Observable en cuestión, y el otro un objeto cualquiera, denominado por defecto args.
-Al mismo se le llama mediante notifyObservers(). notifyObservers() se envía a si mismo cómo primer parámetro, y null cómo segundo parámetro. También se puede llamar a notifyObservers(Object args) donde además de enviarse a si mismo, envía un objeto extra que represente el punto de interés del problema o no.
+
+El mismo se ejecuta siendo llamado mediante notifyObservers(). notifyObservers() se envía a si mismo cómo primer parámetro, y null cómo segundo parámetro. También se puede llamar a notifyObservers(Object args) donde además de enviarse a si mismo, envía un objeto extra que represente el punto de interés del problema o no.
