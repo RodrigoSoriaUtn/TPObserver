@@ -32,6 +32,8 @@ public class TPObserver {
         car1.setOilLevel(15);
         car1.setWaterLevel(50);
         car1.setWheelsPressure(35.12F);
+    
+        System.out.println(car1.toString());
     }
     
 }
